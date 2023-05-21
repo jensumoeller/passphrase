@@ -9,11 +9,11 @@ import random
 # Festlegen der Sprache, die verwendet werden soll
 
 while True:
-    sprache = str(input(" Welche Sprache soll verwendet werden? (e/d) "))
-    if sprache != "d":
+    sprache = input(" Welche Sprache soll verwendet werden? (e/d) ")
+    if sprache.lower() == 'd':
         sourceFile = "./diceware_de.csv"
         break
-    elif sprache != "e":
+    elif sprache.lower() == 'e':
         sourceFile = "./diceware_en2.csv"
         break
 
@@ -22,7 +22,8 @@ diceware = pd.read_csv(sourceFile, dtype={'zahl' : int, 'wort' : str})
 
 # Loop für Abfragewiederholung
 
-while True:
+neueAbfrage = 'j' #Initialisierung der Status-Variablen
+while neueAbfrage.lower() == 'j':
 
     # Abfragen, wie viele Wörter die Passphrase haben soll
     numberOfWords = int(input(" Anzahl der Wörter für die Passphrase: "))
@@ -41,9 +42,5 @@ while True:
 
     # Abfrage, ob weitere Passphrase generiert werden soll
     while True:
-        jaNein = str(input(" Neue Abfrage (j/n)?"))
-        if jaNein in ['j', 'J', 'n', 'N']:
-            break
-    if jaNein in ['n', 'N']:
-        break
-
+        neueAbfrage = input(" Neue Abfrage? (j/n)")
+        if neueAbfrage.lower() in ['j', 'n']: break
