@@ -6,8 +6,8 @@ import os
 import sys
 import random
 
-# Einlesen der DiceWare.txt Datei in eine Lise
-diceware = pd.read_csv("./diceware_de.csv", dtype={'zahl' : int, 'wort' : str})
+# Einlesen der DiceWare.txt Datei in eine Liste
+diceware = pd.read_csv("./diceware_en2.csv", dtype={'zahl' : int, 'wort' : str})
 
 # Loop für Abfragewiederholung
 
